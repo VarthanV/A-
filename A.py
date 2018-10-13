@@ -98,16 +98,16 @@ if(a=='1' or 1):
         
             time.sleep(5)
             string="Hello, Iam A ,your simple commandline  assistant I do simple tasks I am yet to be developed"
-            print(string)
+            
             say(string)
-            print("Do you want to ask me something??")
+           
             say("Do you want to ask me something")
             response=input()
             if response in positive_responses:
                 ques()
             else:
                 apology="I am sorry take care"
-                print(apology)
+           
                 say(apology) 
                 string=" You have other options like surfing web,weather checking etcc..."
                 
