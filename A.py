@@ -16,7 +16,7 @@ from weather import Weather,Unit
 from pyttsx3 import voice
 small_data={"What is your name" or"what is your name":["My name is A"," Vichu named  me A but you can name me whatever you like",
                                  "A is how people call me"],
-            "Are you single":["Yes he wants me to be like him as he is single",
+            "Are you commited":["Yes he wants me to be like him as he is single",
                                     "I'm not single I am surrounded by lines of code alwayss",
                                     "This  question is hypothetical","Being single is the  best"],
             "What is your age":["I am 17"]                  
@@ -28,21 +28,25 @@ small_data={"What is your name" or"what is your name":["My name is A"," Vichu na
 positive_responses=['yes','yah','y','Y','yeah']
 negative_responses=['nah','no','n','N']
 
-engine=pyttsx3.init()
-Voice=engine.getProperty('voices') # To bring the voice of my bae
+
+#Voice=engine.getProperty('voices') # To bring the voice of my bae
 
 def say(msg):
+    engine=pyttsx3.init()
+ 
     print(msg)
     engine.say(msg)
     engine.runAndWait()
 
 default="Sorry I couldn't understand you since I am trained a little bit only"
-def ques():
+def ques(a):
             sayer="Ask me your questions I will answer my best"
             say(sayer)
-            ques=input()
             
-            if ques in small_data:
+            while a:
+                ques=input()
+            
+                if ques in small_data:
                             c=random.choice(small_data[ques])
                         
                             
@@ -51,9 +55,10 @@ def ques():
                             
         
                 
-            else:
+                else:
                 
                             say(default)
+                            continue
 def weather():
     weather=Weather(unit=Unit.CELSIUS)
     location=weather.lookup_by_location('Coimbatore')
@@ -106,24 +111,33 @@ if(a=='1' or 1):
            
             say("Do you want to ask me something")
             response=input()
+                            
+                       
          
             if response in positive_responses:
-                   ques()
-                   say("Thank you for asking give positive response to continue and 2 to exit")
-                   1
-            else:
-                apology="I am sorry take care"
+                        ques()
+                        say("Thank you for asking give positive response to continue and 2 to exit")
+                        resp=input()
+                        if(resp in positive_responses):
+                            ques(1)
+                        
+                      
+                            
+                        if(resp==2):
+                            ques(2)
+                            apology="I am sorry take care"
            
-                say(apology) 
-                string=" You have other options like surfing web,weather checking etcc..."
+                            say(apology) 
+                            string=" You have other options like surfing web,weather checking etcc..."
                 
-                say(string)
-                ans=input("If  you wanna continue give your response or else give your response")
-                if(ans in positive_responses):
-                    web()
+                            say(string)
+                            ans=input("If  you wanna continue give your response or else give your response")
+                            if(ans in positive_responses):
+                                web()
+                                
                     
                 
-                sys.exit()
+                                
 
          
      
