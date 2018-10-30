@@ -14,7 +14,7 @@ import pyttsx3
 import datetime
 from weather import Weather,Unit
 from pyttsx3 import voice
-small_data={"What is your name" or"what is your name":["My name is A"," Vichu named  me A but you can name me whatever you like",
+small_data={"What is your name?":["My name is A"," Vichu named  me A but you can name me whatever you like",
                                  "A is how people call me"],
             "Are you commited":["Yes he wants me to be like him as he is single",
                                     "I'm not single I am surrounded by lines of code alwayss",
